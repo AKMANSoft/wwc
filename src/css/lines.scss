@@ -1,0 +1,45 @@
+.line-of-motion-1 {
+	position: absolute;
+	width: 80px;
+	height: 120%;
+	background: linear-gradient(271.83deg, rgba(188, 144, 54, 0.2) 52.06%, rgba(228, 198, 100, 0.2) 96.13%);
+	top: -10%;
+	transform: skew(20deg);
+	// left: -200px;
+	z-index: 1;
+	// transition: 1s;
+}
+
+
+.line-of-motion-2 {
+	position: absolute;
+	width: 80px;
+	height: 150%;
+	background: linear-gradient(271.83deg, rgba(188, 144, 54, 0.2) 52.06%, rgba(228, 198, 100, 0.2) 96.13%);
+	top: -10%;
+	transform: skew(20deg);
+	// left: -200px;
+	z-index: 1;
+	// transition: 1s;
+
+}
+
+.line-of-motion-3 {
+	position: absolute;
+	width: 80px;
+	height: 150%;
+	background: linear-gradient(271.83deg, rgba(188, 144, 54, 0.2) 52.06%, rgba(228, 198, 100, 0.2) 96.13%);
+	top: -10%;
+	transform: skew(20deg);
+	z-index: 1;
+	// left: -200px;
+	// transition: 1s;
+}
+
+@media(min-width: 767px) {
+	.line-of-motion-1,
+	.line-of-motion-2,
+	.line-of-motion-3 {
+		width: 160px;
+	}
+}
