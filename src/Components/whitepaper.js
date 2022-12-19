@@ -13,7 +13,6 @@ const Whitepaper = (props) => {
     const [left, setLeft] = useState(-200)
     const [resizeParam, setResizeParam] = useState(1)
     const [hidingLimit, setHidingLimit] = useState(200)
-    const [t, setT] = useState(0)
 
     useEffect(() => {
         resizeHandler()
@@ -34,12 +33,8 @@ const Whitepaper = (props) => {
             if (futureleft < ref.current.clientWidth + hidingLimit) {
                 console.log(futureleft - left)
                 if (futureleft - left >= 15) {
-                    // setLeft(futureleft - 50)
-                    setT(1000)
-                    setLeft(futureleft)
-                    setTimeout(() => {
-                        setT(0)
-                    }, 300)
+                    setLeft(futureleft - 100)
+                    // setLeft(futureleft)
                 } else {
                     setLeft(futureleft) 
                 }
@@ -82,7 +77,7 @@ const Whitepaper = (props) => {
                         <div className='whitepaper-section'>
                             <div
                                 className={`line-of-motion-1`}
-                                style={{ left: `${left}px`, transition: `${t}ms` }}
+                                style={{ left: `${left}px` }}
                             ></div>
                             <div className='whitepaper-content'>
                                 <div className='heading'>
