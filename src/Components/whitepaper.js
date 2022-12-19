@@ -35,7 +35,7 @@ const Whitepaper = (props) => {
                 console.log(futureleft - left)
                 if (futureleft - left >= 15) {
                     // setLeft(futureleft - 50)
-                    setT(300)
+                    setT(1000)
                     setLeft(futureleft)
                     setTimeout(() => {
                         setT(0)
