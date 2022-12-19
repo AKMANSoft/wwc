@@ -7,6 +7,66 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 const Whitepaper = (props) => {
+    // const ref = useRef(null)
+    // const isInView = useInView(ref)
+    // const [elemPos, setElemPos] = useState(0)
+    // const [left, setLeft] = useState(-200)
+    // const [resizeParam, setResizeParam] = useState(1)
+    // const [hidingLimit, setHidingLimit] = useState(200)
+
+    // useEffect(() => {
+    //     resizeHandler()
+    //     // window.addEventListener('resize', () => {
+    //     //     resizeHandler()
+    //     // })
+    // }, [])
+
+    // useEffect(() => {
+    //     if ((isInView && elemPos === 0) || (isInView && left === -200)) {
+    //         setElemPos(props.scrollPos)
+    //     }
+    // }, [isInView])
+
+    // useEffect(() => {
+    //     if (isInView) {
+    //         let futureleft = ((props.scrollPos - elemPos) / 3) * resizeParam
+    //         if (futureleft < ref.current.clientWidth + hidingLimit) {
+    //             console.log(futureleft)
+    //             if (futureleft - left > 20) {
+    //                 setLeft(futureleft - 50)
+    //             } else {
+    //                 setLeft(futureleft) 
+    //             }
+    //         }
+    //     }
+    // }, [props.scrollPos])
+
+    // const resizeHandler = () => {
+    //     if (window.innerWidth >= 1100) {
+    //         setResizeParam(1.5)
+    //         setHidingLimit(300)
+    //     }
+
+    //     if (window.innerWidth >= 767) {
+    //         setResizeParam(1)
+    //         setHidingLimit(300)
+    //     }
+
+    //     if (window.innerWidth >= 650) {
+    //         setResizeParam(2)
+    //         setHidingLimit(200)
+    //     }
+
+    //     if (window.innerWidth >= 400) {
+    //         setResizeParam(1.5)
+    //         setHidingLimit(200)
+    //     }
+
+    //     if (window.innerWidth < 400) {
+    //         setResizeParam(.8)
+    //         setHidingLimit(200)
+    //     }  
+    // }
     const ref = useRef(null)
     const isInView = useInView(ref)
     const [elemPos, setElemPos] = useState(0)
@@ -21,6 +81,7 @@ const Whitepaper = (props) => {
         // })
     }, [])
 
+
     useEffect(() => {
         if ((isInView && elemPos === 0) || (isInView && left === -200)) {
             setElemPos(props.scrollPos)
@@ -29,13 +90,8 @@ const Whitepaper = (props) => {
 
     useEffect(() => {
         if (isInView) {
-            let futureleft = ((props.scrollPos - elemPos) / 3) * resizeParam
-            if (futureleft < ref.current.clientWidth + hidingLimit) {
-                if (futureleft - left > 20) {
-                    setLeft(futureleft - 50)
-                } else {
-                    setLeft(futureleft) 
-                }
+            if (((props.scrollPos - elemPos) / 3.5) * resizeParam < ref.current.clientWidth + hidingLimit) {
+                setLeft(((props.scrollPos - elemPos) / 3.5) * resizeParam)
             }
         }
     }, [props.scrollPos])
@@ -62,9 +118,9 @@ const Whitepaper = (props) => {
         }
 
         if (window.innerWidth < 400) {
-            setResizeParam(.8)
+            setResizeParam(1)
             setHidingLimit(200)
-        }  
+        }
     }
 
     return (
