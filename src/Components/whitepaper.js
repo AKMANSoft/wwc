@@ -6,10 +6,9 @@ import { useInView } from "framer-motion"
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-const Whitepaper = () => {
+const Whitepaper = (props) => {
     const ref = useRef(null)
     const isInView = useInView(ref)
-    const [scrollPos, setScrollPos] = useState(0)
     const [elemPos, setElemPos] = useState(0)
     const [left, setLeft] = useState(-200)
     const [resizeParam, setResizeParam] = useState(1)
@@ -17,41 +16,43 @@ const Whitepaper = () => {
 
     useEffect(() => {
         resizeHandler()
-        window.addEventListener('resize', () => {
-            resizeHandler()
-        })
-    }, [])
-
-    useEffect(() => {
-        let scrollHandler = () => {
-            setScrollPos(window.scrollY)
-        }
-        window.addEventListener('scroll', scrollHandler)
-
-        return () => {
-            window.removeEventListener('scroll', scrollHandler)
-        }
+        // window.addEventListener('resize', () => {
+        //     resizeHandler()
+        // })
     }, [])
 
     useEffect(() => {
         if ((isInView && elemPos === 0) || (isInView && left === -200)) {
-            console.log(scrollPos)
-            setElemPos(scrollPos)
+            setElemPos(props.scrollPos)
         }
     }, [isInView])
 
     useEffect(() => {
         if (isInView) {
-            if (((scrollPos - elemPos) / 3) * resizeParam < ref.current.clientWidth + hidingLimit) {
-                setLeft(((scrollPos - elemPos) / 3) * resizeParam)
+            let futureleft = ((props.scrollPos - elemPos) / 3) * resizeParam
+            if (futureleft < ref.current.clientWidth + hidingLimit) {
+                if (futureleft - left > 20) {
+                    setLeft(futureleft - 50)
+                } else {
+                    setLeft(futureleft) 
+                }
             }
         }
-    }, [scrollPos])
+    }, [props.scrollPos])
 
     const resizeHandler = () => {
+        if (window.innerWidth >= 1100) {
+            setResizeParam(1.5)
+            setHidingLimit(300)
+        }
 
-        if (window.innerWidth < 400) {
+        if (window.innerWidth >= 767) {
             setResizeParam(1)
+            setHidingLimit(300)
+        }
+
+        if (window.innerWidth >= 650) {
+            setResizeParam(2)
             setHidingLimit(200)
         }
 
@@ -60,20 +61,10 @@ const Whitepaper = () => {
             setHidingLimit(200)
         }
 
-        if (window.innerWidth >= 650) {
-            setResizeParam(2)
+        if (window.innerWidth < 400) {
+            setResizeParam(.8)
             setHidingLimit(200)
-        }
-
-        if (window.innerWidth >= 767) {
-            setResizeParam(1)
-            setHidingLimit(300)
-        }
-
-        if (window.innerWidth >= 1100) {
-            setResizeParam(1.5)
-            setHidingLimit(300)
-        }
+        }  
     }
 
     return (

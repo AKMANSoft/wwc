@@ -10,10 +10,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 
-const Roadmap = () => {
+const Roadmap = (props) => {
     const ref = useRef(null)
     const isInView = useInView(ref)
-    const [scrollPos, setScrollPos] = useState(0)
     const [elemPos, setElemPos] = useState(0)
     const [left, setLeft] = useState(-500)
     const [resizeParam, setResizeParam] = useState(1)
@@ -21,40 +20,39 @@ const Roadmap = () => {
 
     useEffect(() => {
         resizeHandler()
-        window.addEventListener('resize', () => {
-            resizeHandler()
-        })
-    }, [])
-
-
-    useEffect(() => {
-        let scrollHandler = () => {
-            setScrollPos(window.scrollY)
-        }
-        window.addEventListener('scroll', scrollHandler)
-
-        return () => {
-            window.removeEventListener('scroll', scrollHandler)
-        }
+        // window.addEventListener('resize', () => {
+        //     resizeHandler()
+        // })
     }, [])
 
     useEffect(() => {
         if ((isInView && elemPos === 0 )|| (isInView && left === -200)) {
-            setElemPos(scrollPos)
+            setElemPos(props.scrollPos)
         }
     }, [isInView])
 
     useEffect(() => {
         if (isInView) {
-            if (((scrollPos - elemPos) / 5) * resizeParam < ref.current.clientWidth + hidingLimit) {
-                setLeft(((scrollPos - elemPos) / 5) * resizeParam)
+            if (((props.scrollPos - elemPos) / 5) * resizeParam < ref.current.clientWidth + hidingLimit) {
+                setLeft(((props.scrollPos - elemPos) / 5) * resizeParam)
             }
         }
-    }, [scrollPos])
+    }, [props.scrollPos])
 
     const resizeHandler = () => {
-        if (window.innerWidth < 400) {
+
+        if (window.innerWidth >= 1100) {
+            setResizeParam(1.5)
+            setHidingLimit(300)
+        }
+
+        if (window.innerWidth >= 767) {
             setResizeParam(1)
+            setHidingLimit(300)
+        }
+
+        if (window.innerWidth >= 650) {
+            setResizeParam(2)
             setHidingLimit(200)
         }
 
@@ -63,18 +61,8 @@ const Roadmap = () => {
             setHidingLimit(200)
         }
 
-        if (window.innerWidth >= 650) {
-            setResizeParam(2)
-            setHidingLimit(200)
-        }
-
-        if (window.innerWidth >= 767) {
+        if (window.innerWidth < 400) {
             setResizeParam(1)
-            setHidingLimit(300)
-        }
-
-        if (window.innerWidth >= 1100) {
-            setResizeParam(1.5)
             setHidingLimit(300)
         }
     }

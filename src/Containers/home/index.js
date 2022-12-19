@@ -6,10 +6,8 @@ import Collection from '../../Components/collection'
 import Partners from '../../Components/partners'
 import WhiteList from '../../Components/whiteList'
 import Team from '../../Components/team'
-import Whitepaper from '../../Components/whitepaper'
-import Roadmap from '../../Components/roadmap'
-import FAQ from '../../Components/faq'
 import { motion } from "framer-motion";
+import BlocksWithLinesCont from "./BlocksWithLinesCont";
 
 
 const Index = () => {
@@ -28,9 +26,7 @@ const Index = () => {
       <motion.div
         className="bg-wolf-lens"
       >
-        <Whitepaper/>
-        <Roadmap/>
-        <FAQ/>
+        <BlocksWithLinesCont />
       </motion.div>
     </DefaultLayout>
   )

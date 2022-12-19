@@ -8,24 +8,19 @@ import Footer from './sharedModules/footer'
 // import { Store, persistor } from './Redux/Store';
 import MyRoutes from "./Routes";
 
-
-
-class App extends Component {
-  render() {
-    return (
-      // store={Store}
-      // <Provider >
-      //   {/* persistor={persistor} */}
-      //   <PersistGate loading={null}>
-        
-      //  </PersistGate>
-      // </Provider>
-      <BrowserRouter>
-        <MyRoutes />
-      </BrowserRouter>
-    );
-  }
-
+const App = () => {
+  return (
+    // store={Store}
+    // <Provider >
+    //   {/* persistor={persistor} */}
+    //   <PersistGate loading={null}>
+      
+    //  </PersistGate>
+    // </Provider>
+    <BrowserRouter>
+      <MyRoutes />
+    </BrowserRouter>
+  );
 }
 
 export default App;
