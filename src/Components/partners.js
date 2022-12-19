@@ -1,18 +1,18 @@
 import React from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 
-import Brand1 from '../images/brand-1.png'
-import Brand2 from '../images/brand-2.png'
-import Brand3 from '../images/brand-3.png'
-import Brand4 from '../images/brand-4.png'
-import Brand5 from '../images/brand-5.png'
-import Brand6 from '../images/brand-6.png'
-import Brand7 from '../images/brand-7.png'
-import Brand8 from '../images/brand-8.png'
-import Brand9 from '../images/brand-9.png'
-import Brand10 from '../images/brand-10.png'
-import Brand11 from '../images/brand-11.png'
-import Brand12 from '../images/brand-12.png'
+import Brand1 from '../images/brand-1.svg'
+import Brand2 from '../images/brand-2.svg'
+import Brand3 from '../images/brand-3.svg'
+import Brand4 from '../images/brand-4.svg'
+import Brand5 from '../images/brand-5.svg'
+import Brand6 from '../images/brand-6.svg'
+import Brand7 from '../images/brand-7.svg'
+import Brand8 from '../images/brand-8.svg'
+import Brand9 from '../images/brand-9.svg'
+import Brand10 from '../images/brand-10.svg'
+import Brand11 from '../images/brand-11.svg'
+import Brand12 from '../images/brand-12.svg'
 
 
 const Partners = () => {

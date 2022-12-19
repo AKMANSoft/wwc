@@ -1,6 +1,6 @@
 import React from 'react';
-import NewGold from '../images/new-gold.png'
-import HouseDoge from '../images/house-doge.png'
+import NewGold from '../images/new-gold.svg'
+import HouseDoge from '../images/house-doge.svg'
 import Cloud from '../images/videos/giphy.gif'
 import { Container, Row, Col, Button, Image } from 'react-bootstrap';
 

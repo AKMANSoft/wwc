@@ -22,10 +22,6 @@ const Roadmap = () => {
     useEffect(() => {
         resizeHandler()
         window.addEventListener('resize', () => {
-            setScrollPos(0)
-            setElemPos(0)
-            setLeft(-500)
-            window.scrollTo(0, 0)
             resizeHandler()
         })
     }, [])
@@ -33,7 +29,7 @@ const Roadmap = () => {
 
     useEffect(() => {
         let scrollHandler = () => {
-            setScrollPos(window.pageYOffset)
+            setScrollPos(window.scrollY)
         }
         window.addEventListener('scroll', scrollHandler)
 
@@ -43,7 +39,7 @@ const Roadmap = () => {
     }, [])
 
     useEffect(() => {
-        if (isInView && elemPos === 0 || isInView && left === -200) {
+        if ((isInView && elemPos === 0 )|| (isInView && left === -200)) {
             setElemPos(scrollPos)
         }
     }, [isInView])
@@ -57,7 +53,6 @@ const Roadmap = () => {
     }, [scrollPos])
 
     const resizeHandler = () => {
-
         if (window.innerWidth < 400) {
             setResizeParam(1)
             setHidingLimit(200)

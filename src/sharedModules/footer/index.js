@@ -1,10 +1,10 @@
 import React from "react";
-import logo from '../../images/logo-footer.png';
-import Discord from '../../images/discord.png';
-import Twitter from '../../images/twitter.png';
-import Instagram from '../../images/instagram.png';
-import Facebook from '../../images/facebook.png';
-import Message from '../../images/message.png';
+import logo from '../../images/logo-footer.svg';
+import Discord from '../../images/discord.svg';
+import Twitter from '../../images/twitter.svg';
+import Instagram from '../../images/instagram.svg';
+import Facebook from '../../images/facebook.svg';
+import Message from '../../images/message.svg';
 
 const Index = () => {
   return (

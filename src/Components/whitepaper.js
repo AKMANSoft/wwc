@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useCallback, useMemo, useRef } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import Cloud from '../images/videos/giphy.gif'
+import Cloud from './../images/videos/giphy.gif'
 import './../css/lines.scss'
 import { useInView } from "framer-motion"
 import { useEffect } from 'react';
@@ -13,33 +13,29 @@ const Whitepaper = () => {
     const [elemPos, setElemPos] = useState(0)
     const [left, setLeft] = useState(-200)
     const [resizeParam, setResizeParam] = useState(1)
-    const [hidingLimit, setHidingLimit] = useState(200) 
+    const [hidingLimit, setHidingLimit] = useState(200)
 
     useEffect(() => {
         resizeHandler()
         window.addEventListener('resize', () => {
-            setScrollPos(0)
-            setElemPos(0)
-            setLeft(-200)
-            window.scrollTo(0, 0)
             resizeHandler()
         })
-    }, []) 
-
+    }, [])
 
     useEffect(() => {
         let scrollHandler = () => {
-            setScrollPos(window.pageYOffset)
+            setScrollPos(window.scrollY)
         }
         window.addEventListener('scroll', scrollHandler)
 
         return () => {
-            window.removeEventListener('scroll', scrollHandler)  
+            window.removeEventListener('scroll', scrollHandler)
         }
     }, [])
 
     useEffect(() => {
-        if (isInView && elemPos === 0 || isInView && left === -200) {
+        if ((isInView && elemPos === 0) || (isInView && left === -200)) {
+            console.log(scrollPos)
             setElemPos(scrollPos)
         }
     }, [isInView])
@@ -55,31 +51,30 @@ const Whitepaper = () => {
     const resizeHandler = () => {
 
         if (window.innerWidth < 400) {
-            setResizeParam(1) 
+            setResizeParam(1)
             setHidingLimit(200)
-        } 
+        }
 
         if (window.innerWidth >= 400) {
             setResizeParam(1.5)
             setHidingLimit(200)
-        } 
-        
+        }
+
         if (window.innerWidth >= 650) {
             setResizeParam(2)
             setHidingLimit(200)
-        } 
-        
+        }
+
         if (window.innerWidth >= 767) {
             setResizeParam(1)
             setHidingLimit(300)
-        } 
-        
+        }
+
         if (window.innerWidth >= 1100) {
             setResizeParam(1.5)
             setHidingLimit(300)
         }
     }
-
 
     return (
         <Container>

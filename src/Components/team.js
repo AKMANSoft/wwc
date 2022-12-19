@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 
-import Doge from '../images/doge.png'
-import Gold from '../images/gold.png'
-import Princess from '../images/princess.png'
-import Team4 from '../images/team4.png'
-import Team5 from '../images/team5.png'
-import Team6 from '../images/team6.png'
+import Doge from '../images/doge.svg'
+import Gold from '../images/gold.svg'
+import Princess from '../images/princess.svg'
+import Team4 from '../images/team4.svg'
+import Team5 from '../images/team5.svg'
+import Team6 from '../images/team6.svg'
 import "../css/slick.min.css";
 import Slider from "react-slick";
 
