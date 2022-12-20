@@ -62,10 +62,10 @@ const Roadmap = (props) => {
                 <Col md={8} className="position-relative">
                     <div className="roadmap" ref={ref}>
                         <Card>
-                            <div
+                            {/* <div
                                 className={`line-of-motion-2`}
                                 style={{ left: `${left}px` }}
-                            ></div>
+                            ></div> */}
                             <div className="content">
                                 <div className="heading">
                                     <h2 className='text-center'>ROADMAP</h2>

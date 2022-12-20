@@ -27,12 +27,9 @@ const Whitepaper = (props) => {
     useEffect(() => {
         if (isInView) {
             let futureleft = ((props.scrollPos - elemPos) / 3) * resizeParam
+            
             if (futureleft < ref.current.clientWidth + hidingLimit) {
-                if (futureleft - left > 50) {
-                    setLeft(futureleft - (futureleft - left) + 20)
-                } else {
-                    setLeft(futureleft)
-                }
+                setLeft(futureleft)
                 // setPrevScrollPos(props.scrollPos)
             }
         }
