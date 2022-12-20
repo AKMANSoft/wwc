@@ -13,8 +13,6 @@ const Whitepaper = (props) => {
     const [left, setLeft] = useState(-200)
     const [resizeParam, setResizeParam] = useState(1)
     const [hidingLimit, setHidingLimit] = useState(200)
-    const [prevScrollPos, setPrevScrollPos] = useState(0)
-    const [transition, setTransition] = useState(0)
 
     useEffect(() => {
         resizeHandler()
@@ -33,14 +31,8 @@ const Whitepaper = (props) => {
         if (isInView) {
             let futureleft = ((props.scrollPos - elemPos) / 3) * resizeParam
             if (futureleft < ref.current.clientWidth + hidingLimit) {
-                if (props.scrollPos - prevScrollPos >= 40) {
-                    setTransition(300)
-                    setTimeout(() => {
-                        setTransition(0)
-                    }, 1000)
-                } 
                 setLeft(futureleft)
-                setPrevScrollPos(props.scrollPos)
+                // setPrevScrollPos(props.scrollPos)
             }
         }
     }, [props.scrollPos])
@@ -80,7 +72,7 @@ const Whitepaper = (props) => {
                         <div className='whitepaper-section'>
                             <div
                                 className={`line-of-motion-1`}
-                                style={{ transform: `translateX(${left}px) skew(20deg)`, transition: `${transition}ms` }}
+                                style={{ transform: `translateX(${left}px) skew(20deg)` }}
                             ></div>
                             <div className='whitepaper-content'>
                                 <div className='heading'>
