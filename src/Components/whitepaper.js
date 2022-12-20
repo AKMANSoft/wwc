@@ -16,9 +16,6 @@ const Whitepaper = (props) => {
 
     useEffect(() => {
         resizeHandler()
-        // window.addEventListener('resize', () => {
-        //     resizeHandler()
-        // })
     }, [])
 
     useEffect(() => {
@@ -31,7 +28,11 @@ const Whitepaper = (props) => {
         if (isInView) {
             let futureleft = ((props.scrollPos - elemPos) / 3) * resizeParam
             if (futureleft < ref.current.clientWidth + hidingLimit) {
-                setLeft(futureleft)
+                if (futureleft - left > 50) {
+                    setLeft(futureleft - (futureleft - left) + 20)
+                } else {
+                    setLeft(futureleft)
+                }
                 // setPrevScrollPos(props.scrollPos)
             }
         }
@@ -41,24 +42,16 @@ const Whitepaper = (props) => {
         if (window.innerWidth >= 1100) {
             setResizeParam(1.5)
             setHidingLimit(300)
-        }
-
-        if (window.innerWidth >= 767) {
+        } else if (window.innerWidth >= 767) {
             setResizeParam(1)
             setHidingLimit(300)
-        }
-
-        if (window.innerWidth >= 650) {
+        } else if (window.innerWidth >= 650) {
             setResizeParam(2)
             setHidingLimit(200)
-        }
-
-        if (window.innerWidth >= 400) {
-            setResizeParam(1.5)
+        } else if (window.innerWidth >= 400) {
+            setResizeParam(.9)
             setHidingLimit(200)
-        }
-
-        if (window.innerWidth < 400) {
+        } else if (window.innerWidth < 400) {
             setResizeParam(.8)
             setHidingLimit(200)
         }  

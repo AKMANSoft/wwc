@@ -14,9 +14,6 @@ const FAQ = (props) => {
 
     useEffect(() => {
         resizeHandler()
-        // window.addEventListener('resize', () => {
-        //     resizeHandler()
-        // })
     }, [])
 
 
@@ -38,24 +35,16 @@ const FAQ = (props) => {
         if (window.innerWidth >= 1100) {
             setResizeParam(1.5)
             setHidingLimit(300)
-        }
-
-        if (window.innerWidth >= 767) {
+        } else if (window.innerWidth >= 767) {
             setResizeParam(1)
             setHidingLimit(300)
-        }
-
-        if (window.innerWidth >= 650) {
+        } else if (window.innerWidth >= 650) {
             setResizeParam(2)
             setHidingLimit(200)
-        }
-
-        if (window.innerWidth >= 400) {
-            setResizeParam(1.5)
+        } else if (window.innerWidth >= 400) {
+            setResizeParam(1)
             setHidingLimit(200)
-        }
-
-        if (window.innerWidth < 400) {
+        } else if (window.innerWidth < 400) {
             setResizeParam(1)
             setHidingLimit(200)
         }
