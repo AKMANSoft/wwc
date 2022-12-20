@@ -23,7 +23,7 @@ const Roadmap = (props) => {
     }, [])
 
     useEffect(() => {
-        if ((isInView && elemPos === 0 )|| (isInView && left === -200)) {
+        if ((isInView && elemPos === 0 )|| (isInView && left === -500)) {
             setElemPos(props.scrollPos)
         }
     }, [isInView])
@@ -31,13 +31,21 @@ const Roadmap = (props) => {
     useEffect(() => {
         if (isInView) {
             if (((props.scrollPos - elemPos) / 5) * resizeParam < ref.current.clientWidth + hidingLimit) {
-                setLeft(((props.scrollPos - elemPos) / 5) * resizeParam)
+                if (window.innerWidth < 767) {
+                    // if (left > ref.current.getBoundingClientRect().width / 2) {
+                    //     setLeft((((props.scrollPos - elemPos) / 4) + left) / 2)
+                    // } else {
+                    //     setLeft(((props.scrollPos - elemPos) + left) / 2)
+                    // }
+                    setLeft(((props.scrollPos - elemPos) + left) / 7)
+                } else {
+                    setLeft(((props.scrollPos - elemPos) / 5) * resizeParam)
+                }
             }
         }
     }, [props.scrollPos])
 
     const resizeHandler = () => {
-
         if (window.innerWidth >= 1100) {
             setResizeParam(1.5)
             setHidingLimit(300)

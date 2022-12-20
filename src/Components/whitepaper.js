@@ -27,10 +27,9 @@ const Whitepaper = (props) => {
     useEffect(() => {
         if (isInView) {
             let futureleft = ((props.scrollPos - elemPos) / 3) * resizeParam
-            
+
             if (futureleft < ref.current.clientWidth + hidingLimit) {
                 setLeft(futureleft)
-                // setPrevScrollPos(props.scrollPos)
             }
         }
     }, [props.scrollPos])
@@ -62,7 +61,7 @@ const Whitepaper = (props) => {
                         <div className='whitepaper-section'>
                             <div
                                 className={`line-of-motion-1`}
-                                style={{ transform: `translateX(${left}px) skew(20deg)` }}
+                                style={{ left: `${left}px` }}
                             ></div>
                             <div className='whitepaper-content'>
                                 <div className='heading'>
