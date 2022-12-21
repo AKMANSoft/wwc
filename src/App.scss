@@ -1533,3 +1533,9 @@ section {
 		background-position: 100%;
 	}
 }
+.connect_wallet{
+    @media screen and (max-width:768px) {
+        font-size: 10px;
+        line-height: 12px;
+    }
+}
