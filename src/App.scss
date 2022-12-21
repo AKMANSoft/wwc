@@ -147,10 +147,12 @@ header {
         background: transparent;
         border-color: #E1C361;
         color: #fff;
-        margin-top: 34px;
+        margin-top: 0px;
         position: relative;
         z-index: 20;
-
+        @media screen and (max-width:768px) {
+            margin-top: unset;
+        }
         &:hover {
             background: #E1C361;
             border-color: #F5C153;
@@ -176,7 +178,8 @@ header {
         }
     }
     @media(max-width: 767px) {
-        font-size: 10px;
+        font-size: 16px;
+        line-height: 19px;
         padding: 14px 16px;
     }
 }
@@ -389,6 +392,11 @@ header {
     left: 0;
     right: 0;
     z-index: 9;
+    .mobile_menu{
+        @media screen and (max-width:768px) {
+            margin-top: -0.2rem;
+        }
+    }
     &.navbar-expand-md {
         .navbar-collapse {
             flex-grow: 0;
@@ -604,6 +612,9 @@ header {
         .banner-desc {
             min-height: max-content;
             padding: 120px 0 50px;
+            .join_whitelist{
+                width: 227px;
+            }
         }
     }
 }

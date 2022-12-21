@@ -1,21 +1,21 @@
 import React from "react";
-import logo from '../../images/logo-head.svg';
-import Button from 'react-bootstrap/Button';
+import logo from "../../images/logo-head.svg";
+import Button from "react-bootstrap/Button";
 
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Image from 'react-bootstrap/Image'
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import Image from "react-bootstrap/Image";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 const Index = () => {
   const toggleMenu = (e) => {
     // console.log('ji', e.currentTarget.parentElement.find('.burger-container'),e)
-    document.body.classList.toggle('menuActive');
-  }
+    document.body.classList.toggle("menuActive");
+  };
   return (
     <Navbar collapseOnSelect className="full-menu" expand="md">
-      <Container>
+      <Container className="align-items-baseline mobile_menu">
         <Navbar.Brand href="/">
           <Image src={logo} fluid className="w-100"></Image>
         </Navbar.Brand>
@@ -45,7 +45,7 @@ const Index = () => {
         <Button variant="theme-outline">JOIN WHITELIST</Button>
       </Container>
     </Navbar>
-  )
-}
+  );
+};
 
 export default Index;
